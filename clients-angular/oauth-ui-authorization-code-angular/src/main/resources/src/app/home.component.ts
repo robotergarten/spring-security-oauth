@@ -7,7 +7,7 @@ import {AppService} from './app.service'
   template: `<div class="container" >
     <button *ngIf="!isLoggedIn" class="btn btn-primary" (click)="login()" type="submit">Login</button>
     <div *ngIf="isLoggedIn" class="content">
-        <span>Welcome !!</span>
+        <span>Signature Pad page</span>
         <a class="btn btn-default pull-right"(click)="logout()" href="#">Logout</a>
         <br/>
         <foo-details></foo-details>

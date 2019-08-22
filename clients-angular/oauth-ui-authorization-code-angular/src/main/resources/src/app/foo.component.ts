@@ -13,7 +13,7 @@ import {AppService, Foo} from './app.service'
         <label class="col-sm-3">Name</label> <span>{{foo.name}}</span>
     </div>
     <div class="col-sm-12">
-        <button class="btn btn-primary" (click)="getFoo()" type="submit">New Foo</button>        
+        <button class="btn btn-primary" (click)="getFoo()" type="submit">Submit Consent</button>        
     </div>
 </div>`
 })

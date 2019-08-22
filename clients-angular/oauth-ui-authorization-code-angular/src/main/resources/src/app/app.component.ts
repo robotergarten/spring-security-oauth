@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
     template: `<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Spring Security Oauth - Authorization Code</a>
+      <a class="navbar-brand" href="/">Retail Compliance Report Service</a>
     </div>
   </div>
 </nav>

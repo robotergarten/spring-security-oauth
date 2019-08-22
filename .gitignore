@@ -25,3 +25,4 @@ node_modules/
 node/
 
 *.log
+/clients-angular/oauth-ui-authorization-code-angular/src/main/resources/package-lock.json
