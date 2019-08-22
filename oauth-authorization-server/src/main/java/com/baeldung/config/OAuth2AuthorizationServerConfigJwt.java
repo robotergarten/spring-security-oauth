@@ -40,7 +40,7 @@ public class OAuth2AuthorizationServerConfigJwt extends AuthorizationServerConfi
                 .withClient("sampleClientId")
                 .authorizedGrantTypes("implicit")
                 .scopes("read", "write", "foo", "bar")
-                .autoApprove(false)
+                .autoApprove(true)
                 .accessTokenValiditySeconds(3600)
                 .redirectUris("http://localhost:8083/","http://localhost:8086/")
                 .and()
@@ -48,6 +48,7 @@ public class OAuth2AuthorizationServerConfigJwt extends AuthorizationServerConfi
                 .secret(passwordEncoder().encode("secret"))
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token", "client_credentials")
                 .scopes("foo", "read", "write")
+                .autoApprove(true)
                 .accessTokenValiditySeconds(3600)       // 1 hour
                 .refreshTokenValiditySeconds(2592000)  // 30 days
                 .redirectUris("http://www.example.com","http://localhost:8089/","http://localhost:8080/login/oauth2/code/custom","http://localhost:8080/ui-thymeleaf/login/oauth2/code/custom", "http://localhost:8080/authorize/oauth2/code/bael", "http://localhost:8080/login/oauth2/code/bael")
