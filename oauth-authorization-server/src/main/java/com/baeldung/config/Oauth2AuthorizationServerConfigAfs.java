@@ -1,19 +1,12 @@
 package com.baeldung.config;
 
-
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.BaseOAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.test.OAuth2ContextConfiguration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -25,20 +18,21 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.web.client.RestTemplate;
-
-import java.net.http.HttpClient;
-import java.net.http.HttpResponse;
 import java.util.Arrays;
-import java.util.Collections;
 
-@Configuration
-@EnableAuthorizationServer
+//@Configuration
+//@EnableAuthorizationServer
 public class Oauth2AuthorizationServerConfigAfs extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+
+    private AfsService afsService;
+
+    Oauth2AuthorizationServerConfigAfs(AfsService afsService) {
+        this.afsService = afsService;
+    }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {

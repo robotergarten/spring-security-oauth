@@ -4,12 +4,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
- 
+
 export class Foo {
   constructor(
     public id: number,
     public name: string) { }
-} 
+}
 
 @Injectable()
 export class AppService {
@@ -20,7 +20,7 @@ export class AppService {
     private _http: HttpClient){}
 
   retrieveToken(code){
-    let params = new URLSearchParams();   
+    let params = new URLSearchParams();
     params.append('grant_type','authorization_code');
     params.append('client_id', this.clientId);
     params.append('redirect_uri', this.redirectUri);
@@ -31,7 +31,7 @@ export class AppService {
     .subscribe(
       data => this.saveToken(data),
       err => alert('Invalid Credentials')
-    ); 
+    );
   }
 
   saveToken(token){
@@ -49,7 +49,7 @@ export class AppService {
 
   checkCredentials(){
     return Cookie.check('access_token');
-  } 
+  }
 
   logout() {
     Cookie.delete('access_token');
